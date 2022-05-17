@@ -4,15 +4,20 @@
 
 from typing import List
 
+from numpy import positive
+
 
 def convert_to_absolute(number: float) -> float:
-    return 0
-
+    if number < 0:
+        return (-1 * number) 
+    return number
 
 def use_prefixes() -> List[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
-
-    return [""]
+    List = []
+    for lettre in prefixes:
+        List.append(lettre + suffixe)
+    return List
 
 
 def prime_integer_summation() -> int:
