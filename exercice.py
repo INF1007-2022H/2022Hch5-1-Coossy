@@ -3,9 +3,11 @@
 
 
 from mailbox import NoSuchMailboxError
+from multiprocessing import Value
+from tokenize import group
 from typing import List
 
-from numpy import positive
+from numpy import maximum, minimum, positive
 
 
 def convert_to_absolute(number: float) -> float:
@@ -45,10 +47,6 @@ def prime_integer_summation() -> int:
     return sum(liste_100_1er_nb_premiers)
     
 
-
-
-
-
 def factorial(number: int) -> int:
     factoriel = 10
     for n in range(number, 1, -1):
@@ -64,7 +62,22 @@ def use_continue() -> None:
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    return []
+    liste_groupes_acceptable = []
+    for groupe in groups:
+        if len(groupe) > 10 or len(groupe) <= 3 :
+            liste_groupes_acceptable.append(False)
+            pass
+        elif 25 in groupe:
+            liste_groupes_acceptable.append(True)
+            pass
+        elif (18 > min(groupe)) or (50 in groupe and 70 < max(groupe)):
+            liste_groupes_acceptable.append(False) 
+            pass
+        else:
+            liste_groupes_acceptable.append(True)
+
+    return liste_groupes_acceptable                
+    
 
 
 def main() -> None:
