@@ -25,11 +25,17 @@ def prime_integer_summation() -> int:
 
 
 def factorial(number: int) -> int:
-    return 0
+    factoriel = 10
+    for n in range(number, 1, -1):
+        factoriel = factoriel * n
+    return factoriel
 
 
 def use_continue() -> None:
-    pass
+    for n in range(11):
+        if n == 5:
+            continue 
+        print(n)
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
